@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import './App.css';
+import RepoCard from './components/RepoCard';
 
 export function App() {
   const [repos, setRepos] = useState<any[]>([]);
@@ -31,9 +32,11 @@ export function App() {
   return (
     <div className="App">
       <h1>Let's see</h1>
-      {repos[0]?.map((repo: any, i: any) => (
-        <div key={i}>{repo?.id}</div>
-      ))}
+      <div className="App-Card-Container">
+        {repos[0]?.map((repo: any, i: any) => (
+          <RepoCard key={i} repoData={repo} />
+        ))}
+      </div>
     </div>
   );
 }
