@@ -36,6 +36,8 @@ Using the provided React application in `/web`:
     language, and forks count in the list.
 3.  The list of repositories should be displayed in reverse chronological order
     by creation date.
+    <!-- chronological order - first, second, third -->
+    <!-- reverse chronological order - third, second, first -->
 4.  Add buttons for each language type. Make clicking on a language button
     filter the list by language type.
 5.  Make each repository in the list clickable.

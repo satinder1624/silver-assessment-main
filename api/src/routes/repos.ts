@@ -14,7 +14,14 @@ repos.get('/', async (_: Request, res: Response) => {
     }
   })
     .then(result => {
-      res.json(result.data);
+      let data = result.data;
+      // filtering those who has fork value false
+      data = data.filter((element: { fork: any; }) => !element.fork)
+      // sorting res array in reverse chronological order
+      data.sort(function(a:any,b:any){
+        return +new Date(b.created_at) - +new Date(a.created_at);
+      })
+      res.json(data);
       // console.log(result.data);
     })
     .catch(err => {
