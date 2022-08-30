@@ -55,10 +55,15 @@ code {
   transition: all 0.2s;
 }
 
-.filter-button{
+.filter-button {
   background-color: rgba(128, 128, 128, 0.61);
   padding: 1rem 0.5rem;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
+}
+
+a{
+  color: black;
+  text-decoration: none;
 }
