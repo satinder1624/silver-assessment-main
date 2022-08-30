@@ -33,7 +33,7 @@ Using the provided React application in `/web`:
 
 1.  Fetch repository data from the Express API created in (A).✔️
 2.  Display a list of repositories. Include the repository name, description,
-    language, and forks count in the list.
+    language, and forks count in the list.✔️
 3.  The list of repositories should be displayed in reverse chronological order
     by creation date.✔️
     <!-- chronological order - first, second, third -->

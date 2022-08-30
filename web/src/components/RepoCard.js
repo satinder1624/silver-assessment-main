@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default function RepoCard(repoData) {
+export default function RepoCard(props) {
   return (
     <div className="repocard--container">
-      <div>Name: {repoData.repoData.name}</div>
-      <div>Description: {repoData.repoData.description}</div>
-      <div>Language: {repoData.repoData.language}</div>
-      <div>Forks Count: {repoData.repoData.forks_count}</div>
+      <div>Name: {props.repoData.name}</div>
+      <div>Description: {props.repoData.description}</div>
+      <div>Language: {props.repoData.language}</div>
+      <div>Forks Count: {props.repoData.forks_count}</div>
     </div>
   );
 }
