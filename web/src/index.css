@@ -68,3 +68,7 @@ a{
   color: black;
   text-decoration: none;
 }
+
+.single-repo-container{
+  text-align: center;
+}
