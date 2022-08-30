@@ -40,7 +40,7 @@ Using the provided React application in `/web`:
     <!-- reverse chronological order - third, second, first -->
 4.  Add buttons for each language type. Make clicking on a language button
     filter the list by language type.✔️
-5.  Make each repository in the list clickable.
+5.  Make each repository in the list clickable.✔️
 6.  When you click a repository, display the most recent commit date, author,
     and message.
 7.  If the repository has a `README.md` file, it will be located at
