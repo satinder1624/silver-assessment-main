@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material';
 import axios from 'axios';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
@@ -8,7 +9,8 @@ export default function SingleRepo() {
   const location = useLocation();
   const { date, author } = location.state;
 
-  const [markdownContent, setmarkDownContent] = useState('Empty');
+  const [markdownContent, setmarkDownContent] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let isCancelled = true;
@@ -16,14 +18,13 @@ export default function SingleRepo() {
       .get(`https://raw.githubusercontent.com/${author}/master/README.md`)
       .then((res) => {
         if (isCancelled) {
-          if (res.status === 404) {
-            return;
-          }
           setmarkDownContent(res.data);
+          setIsLoading(false);
         }
       })
       .catch((err) => {
         console.log(err);
+        setIsLoading(false);
       });
 
     return () => {
@@ -35,7 +36,7 @@ export default function SingleRepo() {
     <div className="single-repo-container">
       <h1>Full Name: {author}</h1>
       <span>Updated At: {moment(date).format('MMMM Do YYYY')}</span>
-      <p>{markdownContent}</p>
+      <p>{isLoading ? <CircularProgress /> : markdownContent}</p>
       <div>
         <button onClick={() => navigate('/')}>Back</button>
       </div>

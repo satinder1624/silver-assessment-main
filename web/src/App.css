@@ -1,5 +1,10 @@
-.App > h1 {
+.App > h1,
+.App {
   text-align: center;
+}
+
+.App{
+  margin-top: 1rem;
 }
 
 .App-logo {
