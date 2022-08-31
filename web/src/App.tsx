@@ -12,22 +12,29 @@ export function App() {
 
   useEffect(() => {
     let isCancelled = true;
-    axios
-      .get('http://localhost:4000/repos', {
-        headers: {
-          'content-type': 'application/json',
-        },
-      })
-      .then((result) => {
-        if (isCancelled) {
-          // console.log(result.data);
-          setRepos(result.data);
-          setFilteringRepos(result.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    function callApi() {
+      axios
+        .get('http://localhost:4000/repos', {
+          headers: {
+            'content-type': 'application/json',
+          },
+        })
+        .then((result) => {
+          if (isCancelled) {
+            // console.log(result.data);
+            setRepos(result.data);
+            setFilteringRepos(result.data);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          // If terrible middleware gives an error then call api again
+          callApi();
+        });
+    }
+
+    callApi();
 
     return () => {
       isCancelled = false;
